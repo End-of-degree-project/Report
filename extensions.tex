@@ -3,6 +3,21 @@
 
 Both possible ways for extending Wave have been explored in this work. Gadgets have been implemented with the Wave Gadgets API, and robots with the Java version of the robots API.
 
+Wave gadgets live inside a wave, and therefore are able to interact with it. Among other things, they can access the current state of the wave. There is two different kinds of state:
+
+\begin{itemize}
+  \item Private State\\
+        Stores information that can only be accessed from the participant that modified it.
+  \item Shared State\\
+        Stores the global state of every gadget in this wave.
+\end{itemize}
+
+The state is actually an entity containing key-value pairs of strings. The state can be modified at any time, and the changes made to it will be communicated to the rest of the participants, so they can react accordingly to this change. This is represented in the next figure:
+
+\begin{center}
+\includegraphics[keepaspectratio, scale=0.6]{Media/Diagrams/State/StateSequence.png}
+\end{center}
+
 \input{ccGadget}
 \input{decisionMaker}
 \input{videoConference}
