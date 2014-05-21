@@ -14,9 +14,36 @@ Wave gadgets live inside a wave, and therefore are able to interact with it. Amo
 
 The state is actually an entity containing key-value pairs of strings. The state can be modified at any time, and the changes made to it will be communicated to the rest of the participants, so they can react accordingly to this change. This is represented in the next figure:
 
+\anotacion{TODO: Explain the diagrams a little}
+
 \begin{center}
 \includegraphics[keepaspectratio, scale=0.6]{Media/Diagrams/State/StateSequence.png}
 \end{center}
+
+
+The Gadgets API requires you to create a class hierarchy to be able to succesfully compile. In a hypothetical gadget named ``Gadget'' it would be as follows:
+
+\begin{center}
+\includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Gadget/Gadget.png}
+\end{center}
+
+For every gadget project it has also been implemented a tester and a deployer.
+
+The intention of the tester is to take advantage of the ``Development Mode'' in GWT that allows you to run the code locally without deploying it to a web server. The class diagram for every tester project has followed the same pattern:
+
+\begin{center}
+\includegraphics[keepaspectratio, scale=0.6]{Media/Diagrams/Gadget/Tester.png}
+\end{center}
+
+The project is then run as a Web Application with Google's App Engine.
+
+The deployer also follows a similar pattern:
+
+\begin{center}
+\includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Gadget/Deployer.png}
+\end{center}
+
+The difference between this two structures are the following: First, a Wave Mock is no longer needed, as our gadget will be in an environment with a real Wave behaviour, so the Wave class is bound from the GinModule. Also, the entry point now also extends the Gadget class, a class given by the Gadgets API which some behaviour needed for the Gadget to work in an actual environment.
 
 \input{ccGadget}
 \input{decisionMaker}
