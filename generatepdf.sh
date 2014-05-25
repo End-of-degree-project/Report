@@ -9,3 +9,4 @@ else
 	echo "Cleaning aux files"
 	latexmk -c
 fi
+

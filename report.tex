@@ -6,12 +6,13 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{url}
 
 %\usepackage{tocloft}
 %\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \newcommand\anotacion[1]{\Large\textcolor{red}{\\#1\\}\normalsize}
-\newcommand\ant[1]{{\color{dark-green}{#1}}}
+\newcommand\ant[1]{{\color{green}{#1}}}
 \includeonly{summary,abstract,introduction,soa,methods,extensions,ccGadget,decisionMaker,videoConference,colorizer,results,discussion,conclusion,ref,append}
 
 %% Style for the cover
@@ -42,7 +43,10 @@
 \include{results}
 \include{discussion}
 \include{conclusion}
-\include{ref}
+%\include{ref}
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
 \include{append}
 
 \end{document}
