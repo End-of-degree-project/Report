@@ -3,6 +3,20 @@
 
 Both possible ways for extending Wave have been explored in this work. Gadgets have been implemented with the Wave Gadgets API, and robots with the Java version of the robots API.
 
+To understand where these extensions live, it is necessary to understand how wave is structured. In Figure \ref{fig:wave_structure}
+\begin{figure}[h]
+  \center
+    \includegraphics[keepaspectratio, scale=0.75]{Media/Diagrams/Wave/Structure.png}
+  \caption{Wave Structure}
+  \label{fig:wave_structure}
+\end{figure}
+you can see how Wave documents are structured. The outermost layer is the wave, a thread or conversation, the whole picture of a conversation. Users are invited to the wave, letting them participate in any of the inner wavelets, when they then become participants. As of today, in current versions of Wave In A Box and Kune, only one wavelet lives inside a wave, but the Wave Protocol allow for multiple wavelets. Blips are individual messages created by a participant, and edited by participants later. Blips have hierarchical structure and can be nested inside other blips.
+
+
+\begin{center}
+------------------------------------------------------------------------------------------\\
+\end{center}
+
 Wave gadgets live inside a wave, and therefore are able to interact with it. Among other things, they can access the current state of the wave. There is two different kinds of state:
 
 \begin{itemize}
@@ -17,7 +31,7 @@ The state is actually an entity containing key-value pairs of strings. The state
 \anotacion{TODO: Explain the diagrams a little}
 
 \begin{center}
-\includegraphics[keepaspectratio, scale=0.6]{Media/Diagrams/State/StateSequence.png}
+\includegraphics[keepaspectratio, scale=0.6]{Media/Diagrams/Wave/StateSequence.png}
 \end{center}
 
 
