@@ -4,14 +4,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage{makeidx}
 \usepackage{fancyhdr}
-\usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{graphicx}
 \usepackage{url}
 
 %\usepackage{tocloft}
 %\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \setlength{\parindent}{0pt}
+\setcounter{tocdepth}{2}
 
 \newcommand\anotacion[1]{\Large\textcolor{red}{\\#1\\}\normalsize}
 \newcommand\ant[1]{{\color{green}{#1}}}
@@ -36,7 +37,6 @@
 % set page number starts from 1
 \pagenumbering{arabic}
 
-\include{summary}
 \include{abstract}
 \include{introduction}
 \include{soa}

@@ -3,14 +3,28 @@
 
 Both possible ways for extending Wave have been explored in this work. Gadgets have been implemented with the Wave Gadgets API, and robots with the Java version of the robots API.
 
-To understand where these extensions live, it is necessary to understand how wave is structured. In Figure \ref{fig:wave_structure}
 \begin{figure}[h]
   \center
     \includegraphics[keepaspectratio, scale=0.75]{Media/Diagrams/Wave/Structure.png}
   \caption{Wave Structure}
   \label{fig:wave_structure}
 \end{figure}
-you can see how Wave documents are structured. The outermost layer is the wave, a thread or conversation, the whole picture of a conversation. Users are invited to the wave, letting them participate in any of the inner wavelets, when they then become participants. As of today, in current versions of Wave In A Box and Kune, only one wavelet lives inside a wave, but the Wave Protocol allow for multiple wavelets. Blips are individual messages created by a participant, and edited by participants later. Blips have hierarchical structure and can be nested inside other blips.
+
+To understand where these extensions live, it is necessary to understand how wave is structured. In Figure \ref{fig:wave_structure} you can see how Wave documents are structured. The outermost layer is the wave, a thread or conversation, the whole picture of a conversation. Users are invited to the wave, letting them participate in any of the inner wavelets, when they then become participants. As of today, in current versions of Wave In A Box and Kune, there is only one wavelet inside every wave, but the Wave Protocol allows for multiple wavelets. Blips are individual messages created by a participant, and edited by participants later. Blips have hierarchical structure and can be nested inside other blips. Blips also contain a document in XML-like format, which is the text itself plus all the variations that Wave supports.\\[.2cm]
+Gadgets are inserted inside a document, together with the content itself. They are placed inside a blip, but belong to the wave and therefore have access to the wave's content, wich is given access by the Gadgets API. But that access is very limited, almost only to access what is called the wave's state, a key-value dictionary that keeps track of every state change that occurs inside the wave.\\[.2cm]
+There is actually two differentiated kind of states in a wave:
+\begin{itemize}
+  \item Private State: Stores information that can only be accessed and modified from the participant that created it. Useful to keep stored private information that is not intended to be shared.
+  \item Shared State: Stores the global state of every gadget in this wave, representing the whole picture. Useful for communicating with the other participants and collaborating or comunicating in the gagtet.
+\end{itemize}
+It is important to know that the state belongs to the wave, so gadgets will have access to the other gadgets state, even different instances of the same gadgets. It is then good practice to adopt a system similar to namespaces in programming languages, appending an identifier of the gadget before the key in a way we are not altering or reading an unintended state.\\[.2cm]
+Each actual instance of the gadget in a participant's browser is local, variables are not shared between different participants. When a user triggers a state change in his local instance of the gadget, the only thing that can be communicated outside of the browser is a delta, that is a change in the key-value pairs that represent the state. This delta is then communicated to the local instance of the gadget in every client's browser. That behaviour can be seen represented in figure \ref{fig:wave_state}.
+\begin{figure}[h]
+  \center
+    \includegraphics[keepaspectratio, scale=0.6]{Media/Diagrams/Wave/StateSequence.png}
+  \caption{Wave state transmission}
+  \label{fig:wave_state}
+\end{figure}
 
 
 \begin{center}

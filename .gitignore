@@ -1,6 +1,8 @@
 *~
 *.pdf
 *~
-#*#
+*#
 *.bbl
 *.dvi
+.*
+!/.gitignore

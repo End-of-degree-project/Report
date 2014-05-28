@@ -3,36 +3,31 @@
 
 \subsection{Wave}
 
-In the making of this work every extension has been developed and tested under two varieties of Wave: Wave In A Box and Kune. Kune nowadays has much of it's code forked from the Wave In A Box repository, but adding more functionality around it. Gadgets and apps are built into the core of Wave, and as such Kune inherits all their capabilities, making gadgets and robots comparible with both technologies.
-
+In the making of this work every extension has been developed and tested under two varieties of Wave: Wave In A Box and Kune. Kune nowadays has much of it's code forked from the Wave In A Box repository, but adding more functionality around it. Gadgets and apps are built into the core of Wave, and as such Kune inherits all their capabilities, making gadgets and robots comparible with both technologies.\\[.2cm]
 \begin{figure}[h]
   \center
     \includegraphics[keepaspectratio, scale=0.4]{Media/Captures/Wave/Kune_Groups.png}
   \caption{Kune Groups}
   \label{fig:kune_groups}
 \end{figure}
-
 The main technical feature that characterizes Wave is the Wave Federation Protocol \cite{ref:wave_federated_protocol}, that handles all of the communication happenning between users. It is an esxtension of the Extensible Messaging and Presence Protocol \cite{ref:xmpp}. Participants send delta changes on the content, and those deltas are distributed through the rest of the participants, guaranteeing that the end result is the same for everyone \cite{ref:federating_websites_google_wave}. Gadgets and robots will work under this environment, interacting with the Wave protocol.
 
 
 \subsection{GWT}
 
-Google Web Toolkit GWT is a set of tools that allows web developers to code in Java and from that java-compliant code, generate Asynchronous JavaScript and XML (AJAX) code to make front-end applications. The GWT framework focuses on efficiency and cross-browser compatibility, generating and then serving different AJAX code for every browser and locale combination, so the elements are rendered as they should in each browser, even though they behave differently. GWT provides the developer with all the common web controls, allows RPC invokations, browser history management, unit testing, and native JavaScript calls, among other features.
-
+Google Web Toolkit GWT is a set of tools that allows web developers to code in Java and from that java-compliant code, generate Asynchronous JavaScript and XML (AJAX) code to make front-end applications. The GWT framework focuses on efficiency and cross-browser compatibility, generating and then serving different AJAX code for every browser and locale combination, so the elements are rendered as they should in each browser, even though they behave differently. GWT provides the developer with all the common web controls, allows RPC invokations, browser history management, unit testing, and native JavaScript calls, among other features.\\[.2cm]
 \begin{figure}[h]
   \center
     \includegraphics[keepaspectratio, scale=0.4]{Media/Captures/GWT/gwt_showcase.png}
   \caption{GWT Showcase}
   \label{fig:gwt_showcase}
 \end{figure}
-
 GWT has a development mode, where the Java code is not compiled to JavaScript, but instead it is ran in native Java and simulates the JavaScript components that will be used later. The development mode also allows a Java debugger to attach to GWT and debug the application locally. 
 
 
 \subsection{Gadgets API}
 
-The Gadgets API is made by Google to embed third party applications inside various Google products. They implemented it in wave as Wave Gadgets API, to have access to the specific features of Wave. These applications are HTML and JavaScript, with all their possibilities, and access specific features that the server can offer.
-
+The Gadgets API is made by Google to embed third party applications inside various Google products. They implemented it in wave as Wave Gadgets API, to have access to the specific features of Wave. These applications are HTML and JavaScript, with all their possibilities, and access specific features that the server can offer.\\[.3cm]
 This is a Java API, and it needs to be compiled with the GWT compiler in order to be able to link to the gadgets. Apart from being able to use all GWT components, this API lets the developer communicate with Wave, and that means mainly altering the state and responding to state changes. The state contains the participants, and the content, among other information. 
 
 
