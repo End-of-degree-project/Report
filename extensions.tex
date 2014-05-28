@@ -25,6 +25,28 @@ Each actual instance of the gadget in a participant's browser is local, variable
   \caption{Wave state transmission}
   \label{fig:wave_state}
 \end{figure}
+The Gadgets API asks you to follow a class hierarchy in order to be able to correctly communicate with wave. That hierarchy is as seen in Figure \ref{fig:gadget_classes}.\\[.2cm]
+\begin{figure}[h]
+  \center
+    \includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Gadget/Gadget.png}
+  \caption{Gadgets API class structure}
+  \label{fig:gadget_classes}
+\end{figure}
+Those classes will interact in the following way:
+\begin{itemize}
+  \item AbstractGinModule: GIN is Guice for GWT client-side code, built on top of Guice and with a subset of Guice binding language. It allows the programmer to follow the pattern of dependency injection. This module attaches all of the modules together.
+  \item Composite: Is the actual visual representation of the gadget. This is a GWT class ideated for creating custom widgets. Composites can contain a panel, and inside the panel comples GWT component hierarchies can be built. All features of GWT are supported thanks to this component.
+  \item Messages: A GWT interface meant to be implemented by a class that gives access to the strings needed to build the interface. Those strings can be localized to make the gadget available in different languages for each client. The locale is determined by the Accept-Language field in the browser's HTTP request \cite{ref:gwt_internationalization} and served at runtime to the browser. Typically this class will be used from the Composite, or any of its inner components, to fill them with human-readable language.
+\end{itemize}
+With every one of the gadgets there is available a tester and a deployer, both of them depending on the main gadget, which is common for both.\\[.2cm]
+\begin{figure}[h]
+  \center
+    \includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Gadget/Tester.png}
+  \caption{Gadget Tester Structure}
+  \label{fig:gadget_tester}
+\end{figure}
+The tester project seen in Figure \ref{fig:gadget_tester} shows the common class hierarchy used in every
+ one of the tester projects. It is linked to the one seen in Figure \ref{fig:gadget_classes} by the GadgetGinModule, whis is inherited by the GadgetTesterGinModule. This new Gin module adds another injection, the WaveMock. This is a mock class that simulates the basics of the behaviour of the Wave infrastructure without the need to deploy the whole Wave system. To complete the needs of GIN a class extending Ginjector is created, the TesterGinjector, whose task is to actually inject the GinModule. This injector is instantiated inside a class that implements the interface EntryPoint that, as its name says, will be the entry point of out gadget in the onModuleLoad method.
 
 
 \begin{center}
