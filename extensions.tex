@@ -1,24 +1,22 @@
 \newpage
 \section{Extensions}
-
 Both possible ways for extending Wave have been explored in this work. Gadgets have been implemented with the Wave Gadgets API, and robots with the Java version of the robots API.
-
 \begin{figure}[h]
   \center
     \includegraphics[keepaspectratio, scale=0.75]{Media/Diagrams/Wave/Structure.png}
   \caption{Wave Structure}
   \label{fig:wave_structure}
 \end{figure}
-
-To understand where these extensions live, it is necessary to understand how wave is structured. In Figure \ref{fig:wave_structure} you can see how Wave documents are structured. The outermost layer is the wave, a thread or conversation, the whole picture of a conversation. Users are invited to the wave, letting them participate in any of the inner wavelets, when they then become participants. As of today, in current versions of Wave In A Box and Kune, there is only one wavelet inside every wave, but the Wave Protocol allows for multiple wavelets. Blips are individual messages created by a participant, and edited by participants later. Blips have hierarchical structure and can be nested inside other blips. Blips also contain a document in XML-like format, which is the text itself plus all the variations that Wave supports.\\[.2cm]
+To understand where these extensions live, it is necessary to understand how wave is structured. In Figure \ref{fig:wave_structure} you can see how Wave documents are structured. The outermost layer is the wave, a thread or conversation, the whole picture of a conversation. Users are invited to the wave, letting them participate in any of the inner wavelets, when they then become participants. As of today, in current versions of Wave In A Box and Kune, there is only one wavelet inside every wave, but the Wave Protocol allows for multiple wavelets. Blips are individual messages created by a participant, and edited by participants later. Blips have hierarchical structure and can be nested inside other blips. Blips also contain a document in XML-like format, which is the text itself plus all the variations that Wave supports.
+\section{Gadgets}
 Gadgets are inserted inside a document, together with the content itself. They are placed inside a blip, but belong to the wave and therefore have access to the wave's content, wich is given access by the Gadgets API. But that access is very limited, almost only to access what is called the wave's state, a key-value dictionary that keeps track of every state change that occurs inside the wave.\\[.2cm]
 There is actually two differentiated kind of states in a wave:
 \begin{itemize}
   \item Private State: Stores information that can only be accessed and modified from the participant that created it. Useful to keep stored private information that is not intended to be shared.
-  \item Shared State: Stores the global state of every gadget in this wave, representing the whole picture. Useful for communicating with the other participants and collaborating or comunicating in the gagtet.
+  \item Shared State: Stores the global state of every gadget in this wave, representing the whole picture. Useful for communicating with the other participants and collaborating or comunicating in the gadget.
 \end{itemize}
 It is important to know that the state belongs to the wave, so gadgets will have access to the other gadgets state, even different instances of the same gadgets. It is then good practice to adopt a system similar to namespaces in programming languages, appending an identifier of the gadget before the key in a way we are not altering or reading an unintended state.\\[.2cm]
-Each actual instance of the gadget in a participant's browser is local, variables are not shared between different participants. When a user triggers a state change in his local instance of the gadget, the only thing that can be communicated outside of the browser is a delta, that is a change in the key-value pairs that represent the state. This delta is then communicated to the local instance of the gadget in every client's browser. That behaviour can be seen represented in figure \ref{fig:wave_state}.
+Each actual instance of the gadget in a participant's browser is local, variables are not shared between different participants. When a user triggers a state change in his local instance of the gadget, the only thing that can be communicated outside of the browser is a delta, that is an addition, deletion or modification in the key-value pairs that represent the state. This delta is then communicated to the local instance of the gadget in every client's browser so they can act accordingly and represent the new state. That behaviour can be seen represented in figure \ref{fig:wave_state}.\\[.2cm]
 \begin{figure}[h]
   \center
     \includegraphics[keepaspectratio, scale=0.6]{Media/Diagrams/Wave/StateSequence.png}
@@ -45,61 +43,25 @@ With every one of the gadgets there is available a tester and a deployer, both o
   \caption{Gadget Tester Structure}
   \label{fig:gadget_tester}
 \end{figure}
-The tester project seen in Figure \ref{fig:gadget_tester} shows the common class hierarchy used in every
- one of the tester projects. It is linked to the one seen in Figure \ref{fig:gadget_classes} by the GadgetGinModule, whis is inherited by the GadgetTesterGinModule. This new Gin module adds another injection, the WaveMock. This is a mock class that simulates the basics of the behaviour of the Wave infrastructure without the need to deploy the whole Wave system. To complete the needs of GIN a class extending Ginjector is created, the TesterGinjector, whose task is to actually inject the GinModule. This injector is instantiated inside a class that implements the interface EntryPoint that, as its name says, will be the entry point of out gadget in the onModuleLoad method.
-
-
-\begin{center}
-------------------------------------------------------------------------------------------\\
-\end{center}
-
-Wave gadgets live inside a wave, and therefore are able to interact with it. Among other things, they can access the current state of the wave. There is two different kinds of state:
-
+The tester project seen in Figure \ref{fig:gadget_tester} shows the common class hierarchy used in every one of the tester projects, which makes use of the development mode available in GWT, so gadgets can be quickly tested before deploying them. It is linked to the one seen in Figure \ref{fig:gadget_classes} by the GadgetGinModule, whis is inherited by the GadgetTesterGinModule. This new Gin module adds another injection, the WaveMock. This is a mock class that simulates the basics of the behaviour of the Wave infrastructure without the need to deploy the whole Wave system. To complete the needs of GIN a class extending Ginjector is created, the TesterGinjector, whose task is to actually inject the GinModule. This injector is instantiated inside a class that implements the interface EntryPoint that, as its name says, will be the entry point of out gadget in the onModuleLoad method. This project has to be run as a Web Application with Google's App Engine\\[.2cm]
+\begin{figure}[h]
+  \center
+    \includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Gadget/Deployer.png}
+  \caption{Gadget Deployer Structure}
+  \label{fig:gadget_deployer}
+\end{figure}
+The deployer project represented in Figure \ref{fig:gadget_deployer} is the project used to generate all the final JavaScript files ready to deploy to a web server with support for gadgets. An intermediate XML file containing JavaScript code is generated with enough logic to figure out which one of the browser and locale configuration has to be served.\\[.2cm]
+It is very similar to the tester organization but with two basic differences. First, the GadgetGinModule now binds the class Wave instead of a Wave mock, as it will be running in the whole Wave environment. The other difference is that the EntryPont, as well as implementing the same interface as before, now also extends the Gadget class, coming from the Gadgets API and representing a gadget. This project needs to be GWT compiled to succesfully generate all the files.\\[.2cm]
+Gadgets have been tested for deployment using tomcat as a web server and shindig as a gadgets server with support for opensocial. Several files are generated after GWT compiling, and they should all be put together in the same directory and accessible from the outside. Shindig is then deployed as an application inside tomcat.\\[.2cm]
+Shindig needs to be configured accordingly:
 \begin{itemize}
-  \item Private State\\
-        Stores information that can only be accessed from the participant that modified it.
-  \item Shared State\\
-        Stores the global state of every gadget in this wave.
+  \item First add ``wave'' to the gadgets.container in the \verb|container.js| file, in order to support Wave. As Wave does not use security token (OAuth's authentication token) for gadgets, you have to set Shindig not to require it by adding the following line: \verb|``render_token_required'' : false,|.
+  \item Then you have to instruct Wave to use the gadgets server that was configured. The place to do that is a file called server.config in Wave In A Box, and wave-server.properties in Kune. Set the properties \verb|gadget_server_hostname| to the host running Shindig, and \verb|gadget_server_port| to the port where it is running.
 \end{itemize}
-
-The state is actually an entity containing key-value pairs of strings. The state can be modified at any time, and the changes made to it will be communicated to the rest of the participants, so they can react accordingly to this change. This is represented in the next figure:
-
-\anotacion{TODO: Explain the diagrams a little}
-
-\begin{center}
-\includegraphics[keepaspectratio, scale=0.6]{Media/Diagrams/Wave/StateSequence.png}
-\end{center}
-
-
-The Gadgets API requires you to create a class hierarchy to be able to succesfully compile. In a hypothetical gadget named ``Gadget'' it would be as follows:
-
-\begin{center}
-\includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Gadget/Gadget.png}
-\end{center}
-
-For every gadget project it has also been implemented a tester and a deployer.
-
-The intention of the tester is to take advantage of the ``Development Mode'' in GWT that allows you to run the code locally without deploying it to a web server. The class diagram for every tester project has followed the same pattern:
-
-\begin{center}
-\includegraphics[keepaspectratio, scale=0.6]{Media/Diagrams/Gadget/Tester.png}
-\end{center}
-
-The project is then run as a Web Application with Google's App Engine.
-
-The deployer also follows a similar pattern:
-
-\begin{center}
-\includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Gadget/Deployer.png}
-\end{center}
-
-The difference between this two structures are the following: First, a Wave Mock is no longer needed, as our gadget will be in an environment with a real Wave behaviour, so the Wave class is bound from the GinModule. Also, the entry point now also extends the Gadget class, a class given by the Gadgets API which some behaviour needed for the Gadget to work in an actual environment.
 
 \input{ccGadget}
 \input{decisionMaker}
 \input{videoConference}
+
+\section{Robot}
 \input{colorizer}
-
-\anotacion{Talk about how gadgets and robots can be run (tomcat, shindig, jetty)}
-
-\anotacion{Talk about documentation}
