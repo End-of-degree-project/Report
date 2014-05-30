@@ -2,8 +2,8 @@
 The most basic representation of consensus is taking a decision about a specific aspect. The easiest way to achieve this is by talking, and Wave with real time communication and editing common documents makes this easy. But this way it might be difficult to easily differentiate all the different options, see who agrees with each one of the options, or quickly decide one. This extension allows every participant to choose an option or add new options to the decision. Participants are also able to quickly see who voted each option along with their user avatar images. This features accompanied by Wave's style of communication make consensus and decision making easier.
 
 \subsubsection{State of the Art}
-Because of the nature of Wave, decision making is a very important and basic, so there has been several gadgets made regarding that. It also easily explores all the basic possibilities that the Gadgets API provides. Figure \ref{fig:decision_gadgets} shows two of them: The first one is Poll by Eric Williams, focused on showing statistics about the results, maybe useful when there is a high amount of votes. The second one is Consensuall by Antonio Tenorio, focused on sharing the personal opinion of each voter about an issue.\\[.2cm]
-\begin{figure}[h]
+Because of the nature of Wave, decision making is a very important and basic, so there has been several gadgets made regarding that. It also easily explores all the basic possibilities that the Gadgets API provides. Figure \ref{fig:decision_gadgets} shows two of them: The first one is Poll by Eric Williams, focused on showing statistics about the results, maybe useful when there is a high amount of votes. The second one is Consensuall by Antonio Tenorio, focused on sharing the personal opinion of each voter about an issue.
+\begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.7]{Media/Captures/Extensions/DecisionGadgets/other.png}
     \includegraphics[keepaspectratio, scale=0.7]{Media/Captures/Extensions/DecisionGadgets/consensuall.png}
@@ -13,22 +13,22 @@ Because of the nature of Wave, decision making is a very important and basic, so
 Decision Maker Gadget falls in between both of them by letting people add their own answers, see a representation of the votes and who personally voted for each.
 
 \subsection{Results}
-Decision Maker Gadget is a gadget that can be inserted anywhere in a blip. A title is chosen for the issue at hand, and then different options answering that title can be inserted by anyone who sees the gadget, not only the creator. One of the decisions can be instantly chosen by clicking on it.\\[.2cm]
-\begin{figure}[h]
+Decision Maker Gadget is a gadget that can be inserted anywhere in a blip. A title is chosen for the issue at hand, and then different options answering that title can be inserted by anyone who sees the gadget, not only the creator. One of the decisions can be instantly chosen by clicking on it.
+\begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.4]{Media/Captures/Extensions/DecisionMakerGadget.png}
   \caption{Decision Maker Gadget}
   \label{fig:decision_maker_gadget}
 \end{figure}
-When there have been decisions chosen by different participants, hovering the mouse over the number of votes on the right will show the names and pictures of the participants that voted for it, as represented in Figure \ref{fig:decision_maker_votes}. Names and pictures are taken from their Wave profile.\\[.2cm]
-\begin{figure}[h]
+When there have been decisions chosen by different participants, hovering the mouse over the number of votes on the right will show the names and pictures of the participants that voted for it, as represented in Figure \ref{fig:decision_maker_votes}. Names and pictures are taken from their Wave profile.
+\begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.4]{Media/Captures/Extensions/DecisionMakerGadget_votes.png}
   \caption{Decision Maker Voters}
   \label{fig:decision_maker_votes}
 \end{figure}
-This gadget also relates to the structure shown in Figure \ref{fig:gadget_classes}. The GinModule is the DecisionMakerGinModule, the Composite is the DecisionMakerMainPanel, and the Messages class is represented by the class DecisionMakerMessages. This gadget is slightly more complex than the Creative Commons one, so the class diagram with its specifics is shown in Figure \ref{fig:decision_maker_diagram}.\\[.2cm]
-\begin{figure}[h]
+This gadget also relates to the structure shown in Figure \ref{fig:gadget_classes}. The GinModule is the DecisionMakerGinModule, the Composite is the DecisionMakerMainPanel, and the Messages class is represented by the class DecisionMakerMessages. This gadget is slightly more complex than the Creative Commons one, so the class diagram with its specifics is shown in Figure \ref{fig:decision_maker_diagram}.
+\begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Gadget/DecisionMaker.png}
   \caption{Decision Maker Voters}
