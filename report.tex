@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 
-\usepackage[margin=1.3in]{geometry}
+\usepackage[margin=1.4in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{makeidx}
 \usepackage{fancyhdr}
@@ -8,16 +8,17 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{float}
+\usepackage{verbatim}
 
 %\usepackage{tocloft}
 %\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \setlength{\parindent}{0pt}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 
 \newcommand\anotacion[1]{\Large\textcolor{red}{\\#1\\}\normalsize}
 \newcommand\ant[1]{{\color{green}{#1}}}
-\includeonly{summary,abstract,introduction,soa,tech,extensions,ccGadget,decisionMaker,videoConference,colorizer,results,discussion,conclusion,ref,append}
+\includeonly{summary,abstract,introduction,soa,tech,extensions,ccGadget,decisionMaker,videoConference,colorizer,results,discussion,conclusion,future,ref,append}
 
 %% Style for the cover
 \fancypagestyle{cover}
@@ -44,12 +45,14 @@
 \include{tech}
 \include{extensions}
 \include{results}
-\include{discussion}
-%\include{conclusion}
-%\include{ref}
+%\include{discussion}
+\include{conclusion}
+\include{future}
 \bibliographystyle{plain}
 \bibliography{bibliography}
-
-\include{append}
-
+\begin{comment}
+Fig 16 rehacer con alguien.
+Referencias de TODO.
+Diagrama de secuencia de cómo funciona el robot.
+\end{comment}
 \end{document}
