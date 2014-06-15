@@ -1,5 +1,5 @@
 \section{Video Conference Gadget}
-Wave is meant for text communication. Text has the advantage that it can be stored easily, searched later and edited simultaneously, but lacks the naturality of human-to-human interaction. To get as close as possible to it we need voice and video. Then collaborating on text can be made more efficiently.
+Wave is meant for text communication. Text has the advantage that it can be stored easily, searched later and edited simultaneously, but lacks the naturality of human-to-human interaction. To get as close as possible to it we need voice and video. Then collaborating on text can be made more efficiently. This gadget makes it possible to \textbf{speak to up to 16 other users and see them}.
 
 \label{subsec:video_soa}
 \subsection{State of the Art}
@@ -13,10 +13,17 @@ There is no alternative to video or audio communication integrated on Wave. Ther
 They focus on video, even hiding text communication to leave more room to the video. The Video Conference Gadget can be mixed with text above and below, leaving the video communication as an addition and not the main point. Both video communication tools shown (Google's Hangouts and Microsoft's Skype) require you to have a specific user account to use their services, while this gadget lets you join the video communication from within Wave, but also from an external link without giving any kind of personal information.
 
 \subsection{Results}
-To make this gadget it has been essential the use of a pre-existing service called appear.in that can be found in \verb|https://appear.in/|. They provide the whole video and audio communication, and also facilitate an easy way to use their service in an external website. It is a JavaScript component that can be put inside an iframe, and it will take care of almost everything. Figure \ref{fig:video_gadget} shows the final result of this integration.
+To make this gadget it has been essential the use of a pre-existing service called \textbf{appear.in} \cite{ref:appearin}. They provide the whole video and audio communication based on WebRTC \cite{ref:webrtc}, and also facilitate an easy way to use their service in an external website. It is a JavaScript component that can be put inside an iframe, and it will take care of almost everything. Figure \ref{fig:video_gadget} shows the final result of this integration.
 \begin{figure}[H]
   \center
-    \includegraphics[keepaspectratio, scale=0.5]{Media/Captures/Extensions/VideoGadget.png}
+    \includegraphics[keepaspectratio, scale=0.8]{Media/Captures/Extensions/VideoGadget/RoomSelection.png}
+  \caption{Room Selection Screen}
+  \label{fig:video_gadget_room}
+\end{figure}
+When a user inserts the gadget, he will be prompted with the room selection screen shown in Figure \ref{fig:video_gadget_room}, letting him choose the identifier of the room people will meet in. The same room can be visited from different waves, and also directly from appear.in, as room names can not be duplicated.
+\begin{figure}[H]
+  \center
+    \includegraphics[keepaspectratio, scale=0.45]{Media/Captures/Extensions/VideoGadget.png}
   \caption{Video Conference Gadget}
   \label{fig:video_gadget}
 \end{figure}
@@ -29,5 +36,12 @@ private native void function() /*-{
 \end{verbatim}
 The service appear.in uses the name of the room as a unique identifier, so the gadget asks the user for a name before entering the room. The gadget also makes use of the \verb|?lite| feature, that simplifies the user interface, leaving more space for the images of the video. The camera is accessed through the browser, so no additional software has to be installed.\\[.2cm]
 The Wave state in this gadget is really simple, the only thing stored in it is the name of the room to enter it directly if it has already been set.\\[.2cm]
+\begin{figure}[h]
+  \center
+    \includegraphics[keepaspectratio, scale=0.6]{Media/Diagrams/Gadget/VideoSequence.png}
+  \caption{UML Sequence Diagram, Video Gadget}
+  \label{fig:video_gadget_sequence}
+\end{figure}
+Figure \ref{fig:video_gadget_sequence} shows how the gadget reacts to requests. Once the gadget is inserted, the room selection screen will be shown, allowing any participant to select the name of the room the participants will meet in. When a room is selected, the participants automatically enter the room. If another participant joins the wave once the room has been selected, he will be served the video conference directly.
 \subsection{Conclusions and Future Work}
-The fact that this extension is completely dependant on an external closed-source service is a big limitation. The service could stop working at any time, technical improvements on video or audio communication can not be made, limitations like the maximum of 16 online users can not be avoided, the way to use it could change making it necessary to update the gadget...
+The fact that this extension is completely \textbf{dependant on an external closed-source service} is a big limitation. The service could stop working at any time, technical improvements on video or audio communication can not be made, limitations like the maximum of 16 online users can not be avoided, the way to use it could change making it necessary to update the gadget, and other changes may arise.
