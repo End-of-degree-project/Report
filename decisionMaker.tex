@@ -19,14 +19,14 @@ Because of the nature of Wave, decision making is a very important and basic, so
 Decision Maker Gadget falls in between both of them by letting people add their own answers, see a representation of the votes and who personally voted for each.
 
 \subsection{Results}
-Decision Maker Gadget is a gadget that can be inserted anywhere in a blip. A title is chosen for the issue at hand, and then different options answering that title can be inserted by anyone who sees the gadget, not only the creator. One of the decisions can be instantly chosen by clicking on it.
+Decision Maker Gadget is a gadget that can be inserted anywhere in a blip. A title is chosen for the issue at hand, and then \textbf{different options} answering that title can be inserted by anyone who sees the gadget, not only the creator. One of the decisions can be instantly chosen by clicking on it.
 \begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.4]{Media/Captures/Extensions/DecisionMakerGadget.png}
   \caption{Decision Maker Gadget}
   \label{fig:decision_maker_gadget}
 \end{figure}
-When there have been decisions chosen by different participants, hovering the mouse over the number of votes on the right will show the names and pictures of the participants that voted for it, as represented in Figure \ref{fig:decision_maker_votes}. Names and pictures are taken from their Wave profile.
+When there have been decisions chosen by different participants, \textbf{hovering the mouse over} the number of votes on the right will show the names and pictures of the participants that voted for it, as represented in Figure \ref{fig:decision_maker_votes}. Names and pictures are taken from their Wave profile.
 \begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.4]{Media/Captures/Extensions/DecisionMakerGadget_votes.png}
@@ -43,9 +43,9 @@ This gadget also relates to the structure shown in Figure \ref{fig:gadget_classe
 The interface DecisionManager is extended. It is meant to represent all that can be done with the decisions: select one, add a new decision, and get the total votes of one specific decision. The DecisionMakerMainPanel implements it, and is also the container for all the decisions. A decision represents one of the options that can be chosen, and generates the Popup showing who voted for it. A StateManager is also used to handle everything related to the Wave's state.\\[.2cm]
 There are three different types of entries in the Wave's state:
 \begin{itemize}
-  \item Count of votes: There is one entry of this kind for each decision. To identify which decision this entry is for, the title of the decision is stored as a key. Therefore, the decision titles have to be unique. The value of this entry is the amount of votes that decision has, making it quick to retrieve the amount and show the vote count.
-  \item Voters: Again, one entry for each decision and the title of the decision as an unique identifier. The value is a list of all the people that voted for that decision. As the state is only able to store a string, the list is like \verb+|user1@kune.cc|user2@kune.cc|user3@kune.cc|+. This entry is used to know if a particular user has voted for a decision, and to fill the information inside the votes popup.
-  \item Title: There is one single entry for each gadget. The value of this entry is the name of the decision to be taken. Used to fill the title after it has been set.
+  \item \textbf{Count of votes}: There is one entry of this kind for each decision. To identify which decision this entry is for, the title of the decision is stored as a key. Therefore, the decision titles have to be unique. The value of this entry is the amount of votes that decision has, making it quick to retrieve the amount and show the vote count.
+  \item \textbf{Voters}: Again, one entry for each decision and the title of the decision as an unique identifier. The value is a list of all the people that voted for that decision. As the state is only able to store a string, the list is like \verb+|user1@kune.cc|user2@kune.cc|user3@kune.cc|+. This entry is used to know if a particular user has voted for a decision, and to fill the information inside the votes popup.
+  \item \textbf{Title}: There is one single entry for each gadget. The value of this entry is the name of the decision to be taken. Used to fill the title after it has been set.
 \end{itemize}
 \subsection{Conclusions and Future Work}
 There are already several alternatives for decision making, each one with their unique way of doing things, and there is certainly already one suitable for every need, and Decision Maker doesn't innovate in almost any aspect. This alternative has limitations though: There is no option for multi-choice answers, no way of editing the title after being created, and the list of votes can get a little uncomfortable to see after a large amount of votes has been made. Multi-choice answers would put this gadget \textbf{closer to a consensus tool}, and being able to block options would make the divergence among opinions more visible.
