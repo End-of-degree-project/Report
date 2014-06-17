@@ -10,9 +10,6 @@
 \usepackage{float}
 \usepackage{verbatim}
 
-%\usepackage{tocloft}
-%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-
 \setlength{\parindent}{0pt}
 \setcounter{tocdepth}{3}
 
@@ -28,6 +25,14 @@
    \renewcommand{\headrulewidth}{0pt}
 }
 
+%% Style for the pages with section
+\fancypagestyle{sectioned}
+{
+   \fancyhf{}
+   \rhead{}
+   \renewcommand{\headrulewidth}{0pt}
+}
+
 \makeindex
 
 \begin{document}
@@ -40,12 +45,16 @@
 \pagenumbering{arabic}
 
 \include{abstract}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhf{}
+\rhead{\MakeUppercase{\rightmark}}
+\cfoot{\fancyplain{}{\thepage}}
 \include{introduction}
 \include{soa}
 \include{tech}
 \include{extensions}
 \include{results}
-%\include{discussion}
 \include{conclusion}
 \include{future}
 \bibliographystyle{plain}
