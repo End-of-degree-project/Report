@@ -1,5 +1,5 @@
 \thispagestyle{sectioned}
-\chapter{Decision Maker Gadget}
+\chapter{Pollymer}
 %\addcontentsline{toc}{chapter}{\numberline{Decision Maker Gadget}}
 When talking in a group of people it is sometimes necessary to take a decision about a specific aspect. The easiest way to achieve this is by talking, and Wave with real time communication and editing common documents makes this easy. But this way it might be difficult to easily differentiate all the different options, see who agrees with each one of the options, or quickly decide one. This extension allows every participant to \textbf{choose an option or add new options to the decision}. Participants are also able to quickly see who voted each option along with their user avatar images. This features accompanied by Wave's style of communication make consensus and decision making easier.
 
@@ -18,28 +18,28 @@ Because of the nature of Wave, decision making is a very important and basic, so
   \caption{Consensuall}
   \label{fig:consensuall}
 \end{figure}
-Decision Maker Gadget falls in between both of them by letting people add their own answers, see a representation of the votes and who personally voted for each.
+Pollymer falls in between both of them by letting people add their own answers, see a representation of the votes and who personally voted for each.
 
 \section{Results}
-Decision Maker Gadget is a gadget that can be inserted anywhere in a blip. A title is chosen for the issue at hand, and then \textbf{different options} answering that title can be inserted by anyone who sees the gadget, not only the creator. One of the decisions can be instantly chosen by clicking on it.
+Pollymer is a gadget that can be inserted anywhere in a blip. A title is chosen for the issue at hand, and then \textbf{different options} answering that title can be inserted by anyone who sees the gadget, not only the creator. One of the decisions can be instantly chosen by clicking on it.
 \begin{figure}[h]
   \center
     \includegraphics[keepaspectratio, scale=0.35]{Media/Captures/Extensions/DecisionMakerGadget.png}
-  \caption{Decision Maker Gadget}
+  \caption{Pollymer}
   \label{fig:decision_maker_gadget}
 \end{figure}
 When there have been decisions chosen by different participants, \textbf{hovering the mouse over} the number of votes on the right will show the names and pictures of the participants that voted for it, as represented in Figure \ref{fig:decision_maker_votes}. Names and pictures are taken from their Wave profile.
 \begin{figure}[h]
   \center
     \includegraphics[keepaspectratio, scale=0.35]{Media/Captures/Extensions/DecisionMakerGadget_votes.png}
-  \caption{Decision Maker Voters}
+  \caption{Pollymer Voters}
   \label{fig:decision_maker_votes}
 \end{figure}
 This gadget also relates to the structure shown in Figure \ref{fig:gadget_classes}. The GinModule is the DecisionMakerGinModule, the Composite is the DecisionMakerMainPanel, and the Messages class is represented by the class DecisionMakerMessages. This gadget is slightly more complex than the Creative Commons one, so the class diagram with its specifics is shown in Figure \ref{fig:decision_maker_diagram}.
 \begin{figure}[h]
   \center
     \includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Gadget/DecisionMaker.png}
-  \caption{UML Class Diagram, Decision Maker}
+  \caption{UML Class Diagram, Pollymer}
   \label{fig:decision_maker_diagram}
 \end{figure}
 The interface DecisionManager is extended. It is meant to represent all that can be done with the decisions: select one, add a new decision, and get the total votes of one specific decision. The DecisionMakerMainPanel implements it, and is also the container for all the decisions. A decision represents one of the options that can be chosen, and generates the Popup showing who voted for it. A StateManager is also used to handle everything related to the Wave's state.\\[.2cm]
@@ -50,5 +50,5 @@ There are three different types of entries in the Wave's state:
   \item \textbf{Title}: There is one single entry for each gadget. The value of this entry is the name of the decision to be taken. Used to fill the title after it has been set.
 \end{itemize}
 \section{Conclusions and Future Work}
-There are already several alternatives for decision making, each one with their unique way of doing things, and there is certainly already one suitable for every need, and Decision Maker doesn't innovate in almost any aspect. This alternative has limitations though: There is no option for multi-choice answers, no way of editing the title after being created, and the list of votes can get a little uncomfortable to see after a large amount of votes has been made. Multi-choice answers would put this gadget \textbf{closer to a consensus tool}, and being able to block options would make the divergence among opinions more visible.
+There are already several alternatives for decision making, each one with their unique way of doing things, and there is certainly already one suitable for every need, and Pollymer doesn't innovate in almost any aspect. This alternative has limitations though: There is no option for multi-choice answers, no way of editing the title after being created, and the list of votes can get a little uncomfortable to see after a large amount of votes has been made. Multi-choice answers would put this gadget \textbf{closer to a consensus tool}, and being able to block options would make the divergence among opinions more visible.
 \newpage
