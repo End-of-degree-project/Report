@@ -24,11 +24,11 @@
   \vspace*{0.5cm}
 
   {\large\bf Trabajo de Fin de Grado\\
-             Madrid, 1 de enero de 1970\\}
+             Madrid, junio 2014\\}
   \vspace*{0.7cm}
   {\large Directores:\\
-          Samer Hassan\\
-          Antonio Tenorio}
+          Samer Hassan Collado\\
+          Antonio Tenorio Fornés}
   \vfill
 
   \rhead{}
@@ -36,6 +36,9 @@
   \fancyhf{}
 
 \end{center}
+\end{titlepage}
+\restoregeometry
+
 
 \addtocontents{toc}{~\hfill\textbf{Page}\par}
 
@@ -44,11 +47,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \thispagestyle{empty}
-\addcontentsline{toc}{section}{\numberline{}Authorization of dissemination
-                                            and usage}
-\begin{center}
-  \textbf{\Huge Authorization of dissemination and usage}
-\end{center}
+%\addcontentsline{toc}{chapter*}{\numberline{}Authorization of dissemination
+%                                            and usage}
+\chapter*{Authorization of dissemination and usage}
+\addcontentsline{toc}{chapter}{\numberline{}Authorization}
+%\begin{center}
+%  \textbf{\Huge Authorization of dissemination and usage}
+%\end{center}
 \vfill
 Autorizo a la Universidad Complutense de Madrid a difundir y utilizar con fines académicos, no comerciales y mencionando expresamente a su autor, tanto la propia memoria, como el código, la documentación y/o el software desarrollado. 
 \begin{center}
@@ -70,8 +75,8 @@ Autorizo a la Universidad Complutense de Madrid a difundir y utilizar con fines 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \thispagestyle{empty}
-\section*{Acknowledgements}
-\addcontentsline{toc}{section}{\numberline{}Acknowledgements}
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{\numberline{}Acknowledgements}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Tables of contents %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,7 +85,7 @@ Autorizo a la Universidad Complutense de Madrid a difundir y utilizar con fines 
 \tableofcontents
 %\let\clearpage\relax
 \newpage
-\setcounter{page}{6}
+\setcounter{page}{9}
 \listoffigures
 \listoftables
 \newpage
