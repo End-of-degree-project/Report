@@ -34,13 +34,43 @@ The Robots API \cite{ref:robots_api} is an API with client libraries for Java an
 
 \subsection{Other Technologies}
 Also worth mentioning are the following technologies:
-As an IDE Eclipse \cite{ref:eclipse} 3.8 has been used for developing the gadgets as well as the robot. OpenJDK \cite{ref:openjdk} 7 has been used as Java Development Kit. Jetty \cite{ref:jetty} 6.1.24 has been used for a local robot server. Tomcat7 \cite{ref:tomcat} along with Shindig have been used as a local gadget server. Chromium \cite{ref:chromium} 32 and Iceweasel \cite{ref:iceweasel} 24.3 have been used for testing the results. Maven \cite{ref:maven} has been used for dependency management. The service Appear.in has been used to make the video interaction in the Video Conference Gadget. The Java library google-diff-match-patch has been used to calculate diffs between texts for creating the Colorizer Robot. Vaadin's GWT Graphics library has been used in the Decision Maker Gadget to draw some of its interface. Figure \ref{fig:logos} shows most of the technologies used.
+As an IDE Eclipse \cite{ref:eclipse} 3.8 has been used for developing the gadgets as well as the robot. OpenJDK \cite{ref:openjdk} 7 has been used as Java Development Kit. Jetty \cite{ref:jetty} 6.1.24 has been used for a local robot server. Tomcat7 \cite{ref:tomcat} along with Shindig have been used as a local gadget server. Chromium \cite{ref:chromium} 32 and Iceweasel \cite{ref:iceweasel} 24.3 have been used for testing the results. Maven \cite{ref:maven} has been used for dependency management. The service Appear.in has been used to make the video interaction in the Video Conference Gadget. The Java library google-diff-match-patch has been used to calculate diffs between texts for creating the Colorizer Robot. Vaadin's GWT Graphics library has been used in the Decision Maker Gadget to draw some of its interface. Figure \ref{fig:logos} shows the logos of most of the technologies used. Table \ref{fig:technologies} shows a selection of technologies along with their purpose.
 \begin{figure}[h]
   \center
     \includegraphics[keepaspectratio, scale=0.45]{Media/logos.png}
   \caption{Technologies Used}
   \label{fig:logos}
 \end{figure}
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{ | c | c | c |}
+      \hline
+      \textbf{Type} & \textbf{Name} & \textbf{Use}\\
+      \hline
+      \multirow{2}{*}{APIs}
+        & Robots API & Creating Java Robots for Wave \\ \cline{2-3}
+        & Gadgets API & Creating Gadgets for Wave \\
+      \hline
+      \multirow{3}{*}{Servers}
+        & Tomcat & Web server for storage \\ \cline{2-3}
+        & Shindig & Gadgets server with OpenSocial support \\ \cline{2-3}
+        & Jetty & Java server for robots \\
+      \hline
+      \multirow{2}{*}{Wave}
+        & Wave In A Box & Testing Robots and Gadgets \\ \cline{2-3}
+        & Kune & Testing Robots and Gadgets, documenting \\ \cline{2-3}
+      \hline
+      \multirow{3}{*}{Libraries}
+        & Appear.in & WebRTC video communication \\ \cline{2-3}
+        & Google diff-match-patch & Calculating differences between two texts \\ \cline{2-3}
+        & GWT Graphics & Drawing shapes in GWT \\
+      \hline
+    \end{tabular}
+  \end{center}
+  \caption{Technologies Summary}
+  \label{fig:technologies}
+\end{table}
 
 \section{Methods}
 This chapter will explain the different techniques and decisions used and taken to successfully meet all the requirements and approach the problems trying to be as close to the software engineering process as possible. There has been a special focus on open source, standards and patterns.
