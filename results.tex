@@ -1,10 +1,33 @@
 \chapter{Concluding Remarks}
+The whole end-of-degree project is analyzed in the following sections regarding the results of the work, the conclusion reached after its development, and future lines of work that could be followed after making this work.
 \section{Discussion of Overall Results}
 %\addcontentsline{toc}{chapter}{\numberline{Global Results}}
 Developing for Wave is \textbf{full of difficulties}. When Google released the project to the Apache Foundation to put into the Incubator they didn't fully release everything, keeping parts of the software hidden. There was lack of documentation for many features, and over time links with important information about Wave have been deleted without replacement. This informality leaves the developer with the only option of trial and error to make things work.\\[.2cm]
 Many of these extensions, specifically the Creative Commons License Gadget, the Colorizer Robot and the Video Conference Gadget, or better said the base concepts behind them, had already been suggested for the P2Pvalue project to build, so they meet actual needs that the Wave community has right now.\\[.2cm]
 There are attemps to \textbf{increase the accessibility to Wave} not only to users, but also to developers. That means improving visibility of all the projects related to Wave, completing the features that Wave is lacking right now, and documenting important things that act as tall walls for a developer that wants to get into it. This end-of-degree project contributed to review documentation about Wave gadgets and robots and add to it, as well as updating the sample gadget provided in the Kune repository to one working for the latest version of Kune and a newer version of the GWT.\\[.2cm]
-It would have been useful to make a \textbf{bigger framework}, with more variety and amount of gadgets. Suggested future work in the previous chapters is sometimes outside of the purpose of a framework for gadgets and robots, but the application framework itself can also be improved: Because of the increased difficulty in getting into the development there are procedures that were intended to be documented but haven't been. Also, this work is only as useful as the people who see it, then it will benefit from being spread.
+It would have been useful to make a \textbf{bigger framework}, with more variety and amount of gadgets. Suggested future work in the previous chapters is sometimes outside of the purpose of a framework for gadgets and robots, but the application framework itself can also be improved: Because of the increased difficulty in getting into the development there are procedures that were intended to be documented but haven't been. Also, this work is only as useful as the people who see it, then it will benefit from being spread.\\[.2cm]
+The reasons for developing each of the extensions, as well as the contributions to documentation have been explained in the capter for each extension, but Table \ref{fig:contributions} shows them summarized.
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{ | l | p{2.49cm} | p{2.1cm} | p{2.2cm} | p{2.3cm} |}
+      \hline
+      \textbf{Extension} & \textbf{Need Satisfied} & \textbf{Features} & \textbf{Interacts With} & \textbf{Contributions}\\
+      \hline
+      \ref{subsec:cc_intro} - CCWave & D1.3 Design Guidelines (Section Legal Regime) \cite{ref:p2pvalue} & Choose a Creative Commons License for the content of a blip & Gadgets API & Gadget Development Tutorial \cite{ref:gadget_development}\\
+      \hline
+      \ref{subsec:decision_intro} - Pollymer & & Poll users about a question & Gadgets API & Gadget Development Tutorial \cite{ref:gadget_development}\\
+      \hline
+      \ref{subsec:video_intro} - AppearWOW & D1.3 Design Guidelines (Section Technical Features) \cite{ref:p2pvalue} & Video conference communication & Gadgets API, appear.in & \\
+      \hline
+      \ref{subsec:color_intro} - Colbotia & D1.3 Design Guidelines (Section Economic Model) \cite{ref:p2pvalue} & Highlight the contributions of each participant & Robots API, OAuth & Development Tutorial \cite{ref:robot_development}, Sample README \cite{ref:readme_sample}, Registration Process \cite{ref:registration_process}\\
+      \hline
+    \end{tabular}
+  \end{center}
+  \caption{Contributions to Documentation}
+  \label{fig:contributions}
+\end{table}
+
 
 \section{Conclusion}
 %\addcontentsline{toc}{chapter}{\numberline{Conclusion}}

@@ -11,6 +11,8 @@
 \usepackage{float}
 \usepackage{verbatim}
 \usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{pbox}
 
 \setlength{\marginparwidth}{0pt}
 \setlength{\parindent}{0pt}
@@ -40,6 +42,11 @@
 }
 
 \makeindex
+
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{30pt}
 
 \begin{document}
 

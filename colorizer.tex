@@ -1,7 +1,9 @@
 \thispagestyle{sectioned}
 \chapter{Colbotia}
+\label{subsec:color_intro}
 %\addcontentsline{toc}{chapter}{\numberline{Colorizer Robot}}
-Again, text communications gets in the way of collaboration in some aspects. When working between several people it is sometimes necessary to talk about some aspect of the work they disagree in. In plain text, when there are more than two collaborators, there is no \textbf{way to know who edited what}, so those kind of issues can't be addressed personally. A robot is needed in order to know when and what changes are being made.
+Again, text communications gets in the way of collaboration in some aspects. When working between several people it is sometimes necessary to talk about some aspect of the work they disagree in. In plain text, when there are more than two collaborators, there is no \textbf{way to know who edited what}, so those kind of issues can't be addressed personally. A robot is needed in order to know when and what changes are being made.\\[.2cm]
+Thanks to the development of this robot, the P2Pvalue wiki section documenting the Robot Development has been reviewed \cite{ref:robot_development}. The README for the Robot Sample in P2Pvalue has been reviewed \cite{ref:readme_sample}. The Ŕobot Registration Process has also been reviewed \cite{ref:registration_process}.
 
 \section{State of the Art}
 \label{subsec:color_soa}
@@ -28,22 +30,22 @@ Also, this extension is heavily inspired in Pads, services like PiratePad, Ether
 \end{figure}
 
 \section{Results}
-This extension, in the shape of a robot, goes around that problem by \textbf{assigning a color to each participant}, and painting the background of the text that participant edits. The result can be seen in Figure \ref{fig:colorizer_editions}. It also keeps track of who has each color and puts it in a blip under the main blip of the wave, as seen in Figure \ref{fig:colorizer_editors}. It is also possible to get around the colorizing of any given blip by starting it with \verb|@Robot clear annotations|, being ``Robot'' the actual name of the robot that it was registered with.\\[.2cm]
+This extension, in the shape of a robot, goes around that problem by \textbf{assigning a color to each participant}, and painting the background of the text that participant edits. The result can be seen in Figure \ref{fig:colorizer_editions}. It also keeps track of who has each color and puts it in a blip under the main blip of the wave, as seen in Figure \ref{fig:colorizer_editors}. It is also possible to get around the colorizing of any given blip by starting it with \verb|@Robot clear annotations|, being ``Robot'' the actual name of the robot that it was registered with.
 \begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.8]{Media/Captures/Extensions/Colorizer/ColorizerEditions.png}
   \caption{Colbotia Colors}
   \label{fig:colorizer_editions}
 \end{figure}
+The way to make the background of the text be of a specific color is by changing the annotations of the document. Annotations in Wave are tags affecting a range of text and altering its properties, but they don't affect the text itself. Annotations are also able to be transmitted through the Federation Protocol. Every annotation is defined by a name (Specifying its purpose), a range (Determining the range of characters of text it affects), and a value (The value should that annotation take on that range). There are annotations for text size, links, language, among other. For this robot specifically the annotation \textbf{style/backgroundColor} is the one being set in the changed text.\\[.2cm]
 \begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.7]{Media/Captures/Extensions/Colorizer/ColorizerEditors.png}
   \caption{Colbotia Tracking Participants}
   \label{fig:colorizer_editors}
 \end{figure}
-The way to make the background of the text be of a specific color is by changing the annotations of the document. Annotations in Wave are tags affecting a range of text and altering its properties, but they don't affect the text itself. Annotations are also able to be transmitted through the Federation Protocol. Every annotation is defined by a name (Specifying its purpose), a range (Determining the range of characters of text it affects), and a value (The value should that annotation take on that range). There are annotations for text size, links, language, among other. For this robot specifically the annotation \textbf{style/backgroundColor} is the one being set in the changed text.\\[.2cm]
 The way to know when the changes happen is by subscribing th the \textbf{DocumentChanged event} explained before. This event will be triggered anytime anyone modifies the text.\\[.2cm]
-\begin{figure}[h]
+\begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Robot/Colorizer.png}
   \caption{UML Class Diagram, Colbotia}
