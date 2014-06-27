@@ -1,0 +1,49 @@
+\nobreakspace {}\hfill \textbf {Page}\par 
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Authorization}{III}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Abstract}{IX}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Resumen}{XI}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Objectives}{2}
+\contentsline {section}{\numberline {1.2}Document Structure}{3}
+\contentsline {chapter}{\numberline {2}Introducci\IeC {\'o}n}{5}
+\contentsline {section}{\numberline {2.1}Objetivos}{6}
+\contentsline {section}{\numberline {2.2}Estructura del Documento}{7}
+\contentsline {chapter}{\numberline {3}State of the Art}{9}
+\contentsline {section}{\numberline {3.1}Generic Overview}{9}
+\contentsline {section}{\numberline {3.2}State of the Art for Extensions}{11}
+\contentsline {chapter}{\numberline {4}Technologies and Methods}{13}
+\contentsline {section}{\numberline {4.1}Technologies}{13}
+\contentsline {subsection}{\numberline {4.1.1}Wave}{13}
+\contentsline {subsection}{\numberline {4.1.2}Google Web Toolkit}{14}
+\contentsline {subsection}{\numberline {4.1.3}Gadgets API}{15}
+\contentsline {subsection}{\numberline {4.1.4}Robots API}{16}
+\contentsline {subsection}{\numberline {4.1.5}Other Technologies}{16}
+\contentsline {section}{\numberline {4.2}Methods}{17}
+\contentsline {subsection}{\numberline {4.2.1}Free Open Source Software Approach}{17}
+\contentsline {subsection}{\numberline {4.2.2}Standards \& Protocols}{18}
+\contentsline {subsection}{\numberline {4.2.3}Patterns}{19}
+\contentsline {subsection}{\numberline {4.2.4}Extensions}{20}
+\contentsline {chapter}{\numberline {5}Frame for Development of Gadgets \& Robots}{21}
+\contentsline {section}{\numberline {5.1}Gadgets}{21}
+\contentsline {section}{\numberline {5.2}Robots}{25}
+\contentsline {chapter}{\numberline {6}CCWave: A Wave Gadget}{29}
+\contentsline {section}{\numberline {6.1}State of the Art}{29}
+\contentsline {section}{\numberline {6.2}Results}{31}
+\contentsline {section}{\numberline {6.3}Conclusions and Future Work}{32}
+\contentsline {chapter}{\numberline {7}Pollymer: A Wave Gadget}{33}
+\contentsline {section}{\numberline {7.1}State of the Art}{33}
+\contentsline {section}{\numberline {7.2}Results}{34}
+\contentsline {section}{\numberline {7.3}Conclusions and Future Work}{36}
+\contentsline {chapter}{\numberline {8}AppearWOW: A Wave Gadget}{39}
+\contentsline {section}{\numberline {8.1}State of the Art}{39}
+\contentsline {section}{\numberline {8.2}Results}{40}
+\contentsline {section}{\numberline {8.3}Conclusions and Future Work}{42}
+\contentsline {chapter}{\numberline {9}Colbotia: A Wave Robot}{43}
+\contentsline {section}{\numberline {9.1}State of the Art}{43}
+\contentsline {section}{\numberline {9.2}Results}{44}
+\contentsline {section}{\numberline {9.3}Conclusions and Future Work}{47}
+\contentsline {chapter}{\numberline {10}Concluding Remarks}{49}
+\contentsline {section}{\numberline {10.1}Discussion of Overall Results}{49}
+\contentsline {section}{\numberline {10.2}Conclusion}{51}
+\contentsline {section}{\numberline {10.3}Future Work}{52}
+\contentsline {chapter}{\hbox to\@tempdima {\hfil }Bibliography}{52}

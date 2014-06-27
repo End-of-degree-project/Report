@@ -1,10 +1,9 @@
 \thispagestyle{sectioned}
-\chapter{AppearWOW}
+\chapter{AppearWOW: A Wave Gadget}
 \label{subsec:video_intro}
 %\addcontentsline{toc}{chapter}{\numberline{Video Conference Gadget}}
-From D1.3 Design Guidelines (Section Technical Features) \cite{ref:p2pvalue}: ``The platform should therefore include tools for collaboration, including key features, such as: Synchronous communication with video and voice communication''.\\[.2cm]
-Wave is meant for text communication. Text has the advantage that it can be stored easily, searched later and edited simultaneously, but lacks the naturality of human-to-human interaction. To get as close as possible to it we need voice and video. Then collaborating on text can be made more efficiently. This gadget makes it possible to \textbf{speak to up to 16 other users and see them}.
-
+Design Guidelines report of the P2P value project claims that ``The platform should therefore include tools for collaboration, including key features, such as: Synchronous communication'', among these synchronous tools they mention ``Video and voice communication'' \cite{ref:p2pvalue}.\\[.2cm]
+Wave is meant for text communication. Text has the advantage that it can be stored easily, searched later and edited simultaneously, but lacks the naturallity of human-to-human interaction. To get as close as possible to it we need voice and video. Then collaborating on text can be made more efficiently. This gadget makes it possible to \textbf{speak to up to 16 other users and see them}.
 \section{State of the Art}
 \label{subsec:video_soa}
 There is no alternative to video or audio communication integrated on Wave. There is other alternatives though outside of it, some of them shown in Figure \ref{fig:skype_hangouts}.
@@ -31,8 +30,8 @@ When a user inserts the gadget, he will be prompted with the room selection scre
   \caption{Video Conference Gadget}
   \label{fig:video_gadget}
 \end{figure}
-It was shown in Figure \ref{fig:gadget_classes} the basic structure of a gadget. The composite is represented by the VideoGadgetMainPanel, the Messages are the class VideoGadgetMessages, and the GinModule is realized by VideoGadgetGinModule. Outside from that, the structure is relatively simple.\\[.2cm]
-As appar.in is a JavaScript service, multiple calls to \textbf{native JavaScript} have been made inside this gadget.
+It was shown in Figure \ref{fig:gadget_classes} the basic structure of a gadget. The composite is represented by the VideoGadgetMainPanel, the Messages are the class VideoGadgetMessages, and the GinModule is realised by VideoGadgetGinModule. Outside from that, the structure is relatively simple.\\[.2cm]
+As appear.in is a JavaScript service, multiple calls to \textbf{native JavaScript} have been made inside this gadget.
 The service appear.in uses the name of the room as a unique identifier, so the gadget asks the user for a name before entering the room. The gadget also makes use of appear.in's \verb|?lite| feature, that simplifies the user interface, leaving more space for the images of the video. The \textbf{camera is accessed through the browser}, so no additional software has to be installed.\\[.2cm]
 The Wave state in this gadget is really simple, the only thing stored in it is the name of the room to enter it directly if it has already been set.\\[.2cm]
 \begin{figure}[h]
@@ -43,5 +42,7 @@ The Wave state in this gadget is really simple, the only thing stored in it is t
 \end{figure}
 Figure \ref{fig:video_gadget_sequence} shows how the gadget reacts to requests. Once the gadget is inserted, the room selection screen will be shown, allowing any participant to select the name of the room the participants will meet in. When a room is selected, the participants automatically enter the room. If another participant joins the wave once the room has been selected, he will be served the video conference directly.
 \section{Conclusions and Future Work}
-The fact that this extension is completely \textbf{dependant on an external closed-source service} is a big limitation. The service could stop working at any time, technical improvements on video or audio communication can not be made, limitations like the maximum of 16 online users can not be avoided, the way to use it could change making it necessary to update the gadget, and other changes may arise.
+This Wave extension is a Gadget which allows all the participants who are in the wave to join a video conference among them.\\[.2cm]
+The fact that this extension is completely \textbf{dependant on an external closed-source service} is a big limitation. The service could stop working at any time, technical improvements on video or audio communication can not be made, limitations like the maximum of 16 online users can not be avoided, the way to use it could change making it necessary to update the gadget, and other changes may arise.\\[.2cm]
+To solve all of these problems, an open source alternative for the video and audio communication should be used, or it should be developed from scratch.
 \newpage

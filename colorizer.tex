@@ -1,8 +1,9 @@
 \thispagestyle{sectioned}
-\chapter{Colbotia}
+\chapter{Colbotia: A Wave Robot}
 \label{subsec:color_intro}
 %\addcontentsline{toc}{chapter}{\numberline{Colorizer Robot}}
-Again, text communications gets in the way of collaboration in some aspects. When working between several people it is sometimes necessary to talk about some aspect of the work they disagree in. In plain text, when there are more than two collaborators, there is no \textbf{way to know who edited what}, so those kind of issues can't be addressed personally. A robot is needed in order to know when and what changes are being made.\\[.2cm]
+The Design Guidelines for the P2Pvalue project \cite{ref:p2pvalue} talks about identifying the contributions from users: ``The tool should have a way to capture contributions (such as open value accounting) and automatically distribute the monetary gains to the members based on their contribution''.\\[.2cm]
+Again, text communications gets in the way of collaboration in some aspects. When working between several people it is sometimes necessary to talk about some aspect of the work they disagree in. In plain text, when there are more than two collaborators, there is no \textbf{way to know who edited what}, so those kind of issues can not be addressed personally. A robot is needed in order to know when and what changes are being made.\\[.2cm]
 Thanks to the development of this robot, the P2Pvalue wiki section documenting the Robot Development has been reviewed \cite{ref:robot_development}. The README for the Robot Sample in P2Pvalue has been reviewed \cite{ref:readme_sample}. The Ŕobot Registration Process has also been reviewed \cite{ref:registration_process}.
 
 \section{State of the Art}
@@ -14,14 +15,14 @@ In Wave it is possible to see who has participated in a blip as shown in Figure 
   \caption{Blip Participants in Apache Wave}
   \label{fig:participants}
 \end{figure}
-The other thing Wave does to try to keep people informed on when changes happen, is to highlight the changes that just happened and write the author's name next to it, as shown in Figure \ref{fig:participants2}. The problem is it is not permanent, so you only realize of the change if you were already looking at the content being changed.
+The other thing Wave does to try to keep people informed on when changes happen, is to highlight the changes that just happened and write the author's name next to it, as shown in Figure \ref{fig:participants2}. The problem is it is not permanent, so you only realise of the change if you were already looking at the content being changed.
 \begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.7]{Media/Captures/Wave/Participants2.png}
   \caption{Change Highlighting in Apache Wave}
   \label{fig:participants2}
 \end{figure}
-Also, this extension is heavily inspired in Pads, services like PiratePad, Etherpad, TitanPad and many others, that offer an online collaboration tool that allows to concurrently write plain-text documents. They show a specific color for each participant to quickly see who edited what. TitanPad in Figure \ref{fig:titanpad}, even though not the only, has the capability to show a timeline and revisit past states of the Pad, so no information is lost even after being modified.
+Also, this extension is heavily inspired in Pads, services like PiratePad, Etherpad, TitanPad and many others, that offer an online collaboration tool that allows to concurrently write plain-text documents. They show a specific colour for each participant to quickly see who edited what. TitanPad in Figure \ref{fig:titanpad}, even though not the only, has the capability to show a timeline and revisit past states of the Pad, so no information is lost even after being modified.
 \begin{figure}[h]
   \center
     \includegraphics[keepaspectratio, scale=0.4]{Media/Captures/Soa/TitanPad.png}
@@ -30,21 +31,21 @@ Also, this extension is heavily inspired in Pads, services like PiratePad, Ether
 \end{figure}
 
 \section{Results}
-This extension, in the shape of a robot, goes around that problem by \textbf{assigning a color to each participant}, and painting the background of the text that participant edits. The result can be seen in Figure \ref{fig:colorizer_editions}. It also keeps track of who has each color and puts it in a blip under the main blip of the wave, as seen in Figure \ref{fig:colorizer_editors}. It is also possible to get around the colorizing of any given blip by starting it with \verb|@Robot clear annotations|, being ``Robot'' the actual name of the robot that it was registered with.
+This extension, in the shape of a robot, goes around that problem by \textbf{assigning a colour to each participant}, and painting the background of the text that participant edits. The result can be seen in Figure \ref{fig:colorizer_editions}. It also keeps track of who has each colour and puts it in a blip under the main blip of the wave, as seen in Figure \ref{fig:colorizer_editors}. It is also possible to get around the colourising of any given blip by starting it with \verb|@Robot clear annotations|, being ``Robot'' the actual name of the robot that it was registered with.
 \begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.8]{Media/Captures/Extensions/Colorizer/ColorizerEditions.png}
-  \caption{Colbotia Colors}
+  \caption{Colbotia Colours}
   \label{fig:colorizer_editions}
 \end{figure}
-The way to make the background of the text be of a specific color is by changing the annotations of the document. Annotations in Wave are tags affecting a range of text and altering its properties, but they don't affect the text itself. Annotations are also able to be transmitted through the Federation Protocol. Every annotation is defined by a name (Specifying its purpose), a range (Determining the range of characters of text it affects), and a value (The value should that annotation take on that range). There are annotations for text size, links, language, among other. For this robot specifically the annotation \textbf{style/backgroundColor} is the one being set in the changed text.\\[.2cm]
+The way to make the background of the text be of a specific colour is by changing the annotations of the document. Annotations in Wave are tags affecting a range of text and altering its properties, but they do not affect the text itself. Annotations are also able to be transmitted through the Federation Protocol. Every annotation is defined by a name (Specifying its purpose), a range (Determining the range of characters of text it affects), and a value (The value should that annotation take on that range). There are annotations for text size, links, language, among other. For this robot specifically the annotation \textbf{style/backgroundColor} is the one being set in the changed text.\\[.2cm]
 \begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.7]{Media/Captures/Extensions/Colorizer/ColorizerEditors.png}
   \caption{Colbotia Tracking Participants}
   \label{fig:colorizer_editors}
 \end{figure}
-The way to know when the changes happen is by subscribing th the \textbf{DocumentChanged event} explained before. This event will be triggered anytime anyone modifies the text.\\[.2cm]
+The way to know when the changes happen is by subscribing the \textbf{DocumentChanged event} explained before. This event will be triggered anytime anyone modifies the text.\\[.2cm]
 \begin{figure}[H]
   \center
     \includegraphics[keepaspectratio, scale=0.5]{Media/Diagrams/Robot/Colorizer.png}
@@ -62,5 +63,6 @@ Figure \ref{fig:colorizer_diagram} represents the class structure of the Coloriz
 Figure \ref{fig:colorizer_activity_diagram} shows the behaviour of this robot in time, disregarding the aspects of the robot registration. Once the server is started, it is ready to be used as a robot and \textbf{added as a participant to the wave}. When it is added, the first thing done is creating the blip for tracking the participants that have acted. When the blip is created, it will start listening for Document Changed events. When each of those events is received, the robot will check if the participant that generated the event is already being tracked, and add it otherwise. The Document Changed event is triggered also when the document is changed by an equivalent one, so the difference of both documents has to be calculated. Annotations are updated according to the participants and changes. Afterwards, it goes back to waiting to another Document Changed event.
 
 \section{Conclusions and Future Work}
-This extension, as said before, uses an API for diff calculation that works with plain text. That means changes on annotations are not detected. Also, diff detection can be problematic in some specific cases. The difference between two documents is always computed correctly, but as the library does not have information on where the text changed, and it is not possible to extract that information from within the robots API, it will sometimes attribute a change to a wrong position of the text. For example: We have the string ``abc'', and a participant decides to add a new ``b'' to the left of the already existing ``b''. The end result would be ``abbc'', where the first apparition of the letter will be the change from the last version of the text. But because of how the diff calculation is made, the library will come up with the result that the difference between those two texts is the ``b'' on the right and the robot will put the background color in the wrong character. This small example can be extrapolated to more complex and problematic cases.\\[.2cm]
+This extension is a Wave Robot that can be added to a wave as a participant and will highlight in different colours all of the different participants to attribute edition of text to the author of that edition.\\[.2cm]
+This extension, as said before, uses an API for diff calculation that works with plain text. That means changes on annotations are not detected. Also, diff detection can be problematic in some specific cases. The difference between two documents is always computed correctly, but as the library does not have information on where the text changed, and it is not possible to extract that information from within the robots API, it will sometimes attribute a change to a wrong position of the text. For example: We have the string ``abc'', and a participant decides to add a new ``b'' to the left of the already existing ``b''. The end result would be ``abbc'', where the first apparition of the letter will be the change from the last version of the text. But because of how the diff calculation is made, the library will come up with the result that the difference between those two texts is the ``b'' on the right and the robot will put the background colour in the wrong character. This small example can be extrapolated to more complex and problematic cases.\\[.2cm]
 Wave, thanks to the federation protocol and the deltas, is able to keep track of all the history of the modifications in the document. Also because of deltas, changes can be attributed to a participant with little overhead, as opposed to calculating the difference every time a change is made. With past states it would be possible to reliably go back in history and review what happened. \textbf{Implementing this feature at a Wave protocol level} would definitely be advantageous.
